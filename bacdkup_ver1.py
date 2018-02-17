@@ -6,11 +6,18 @@ source = [r'D:\python']
 target_dir = r'D:\backup'
 # 3.备份文件将打包压缩成zip文件
 # 4.zip压缩文件的文件名由当前日期与时间构成。
-target = target_dir + os.sep + \
-         time.strftime('%Y%m%d%H%M%S') + '.zip'
 # 如果目标还不存在，则进行创建
 if not os.path.exists(target_dir):
     os.mkdir(target_dir)    #创建目录
+today = target_dir + os.sep + time.strftime('%Y%m%d%H%M%S') + '.zip'
+# 将当前时间作为zip文件的文件名
+now = time.strftime('%H%M%S')
+# zip文件名称格式
+target = today + os.sep + now + '.zip'
+# 如果子目录不存在则创建一个
+if not os.path.exists(today):
+         os.mkdir(today)
+         print('Successfully created directory',today)
 # 5.我们使用zip命令将文件打包成zip格式
 zip_command = 'zip -r {0} {1}'.format(target,' '.join(source))
 # 运行备份
