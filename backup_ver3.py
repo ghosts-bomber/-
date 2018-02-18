@@ -16,7 +16,7 @@ now = time.strftime('%H%M%S')
 if len(comment) == 0:
     target = today + os.sep + now + '.zip'
 else:
-    target = today + os.sep + now + '_' +
+    target = today + os.sep + now + '_' + \
         comment.replace(' ','_') + '.zip'
 # 如果子目录不存在则创建一个
 if not os.path.exists(today):
